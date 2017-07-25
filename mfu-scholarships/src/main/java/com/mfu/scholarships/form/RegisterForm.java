@@ -18,7 +18,7 @@ public class RegisterForm implements Serializable {
 	private AcUser acUser;
 	private AcStudent acStudent;
 
-	// for search
+	// for search, show in datatable
 	private RftSchool rftSchool;
 	private RftMajor rftMajor;
 	
