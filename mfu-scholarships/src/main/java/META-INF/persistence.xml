@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="mfu-scholarships" transaction-type="JTA">
+		<class>com.mfu.scholarships.entity.AcStudent</class>
+		<class>com.mfu.scholarships.entity.AcUser</class>
+		<class>com.mfu.scholarships.entity.RftDistrict</class>
+		<class>com.mfu.scholarships.entity.RftMajor</class>
+		<class>com.mfu.scholarships.entity.RftProvince</class>
+		<class>com.mfu.scholarships.entity.RftSchool</class>
+		<class>com.mfu.scholarships.entity.RftSubDistrict</class>
+		<class>com.mfu.scholarships.entity.RftTitleName</class>
+		<class>com.mfu.scholarships.entity.SmSponsor</class>
+	</persistence-unit>
+</persistence>
