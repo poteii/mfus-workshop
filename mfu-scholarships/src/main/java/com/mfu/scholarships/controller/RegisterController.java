@@ -44,8 +44,10 @@ public class RegisterController {
 	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
 	public ResponseEntity deleteUser(@RequestBody RegisterForm form) throws IOException {
 		registerService.deleteUser(form);
+		
 
 		return new ResponseEntity("Remove Success!", HttpStatus.OK);
 	}
+	
 
 }
