@@ -6,6 +6,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.mfu.scholarships.entity.RftDistrict;
 import com.mfu.scholarships.entity.RftMajor;
@@ -21,6 +25,9 @@ import com.mfu.scholarships.query.RftSubDistrictQuery;
 import com.mfu.scholarships.query.RftTitleNameQuery;
 import com.mfu.scholarships.service.UtilsService;
 
+@Service
+@Repository
+@Transactional
 public class UtilsServiceImpl implements UtilsService, Serializable {
 
 	/**

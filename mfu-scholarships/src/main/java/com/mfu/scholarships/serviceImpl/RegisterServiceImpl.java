@@ -6,6 +6,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.mfu.scholarships.entity.AcStudent;
 import com.mfu.scholarships.entity.AcUser;
@@ -16,6 +20,9 @@ import com.mfu.scholarships.query.AcStudentQuery;
 import com.mfu.scholarships.query.AcUserQuery;
 import com.mfu.scholarships.service.RegisterService;
 
+@Service
+@Repository
+@Transactional
 public class RegisterServiceImpl implements RegisterService {
 
 	/**
