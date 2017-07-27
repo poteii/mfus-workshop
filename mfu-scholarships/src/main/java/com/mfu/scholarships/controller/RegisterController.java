@@ -22,8 +22,13 @@ public class RegisterController {
 	private RegisterService registerService;
 
 	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
-	public void createUser(@RequestBody RegisterForm form) {
-		registerService.createUser(form);
+	public ResponseEntity createUser(@RequestBody RegisterForm form) {
+		try {
+			registerService.createUser(form);
+			return new ResponseEntity("insert Success!", HttpStatus.OK);
+		}catch (Exception e) {
+			return new ResponseEntity("error!", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@RequestMapping(value = "/doSearch", method = RequestMethod.POST)

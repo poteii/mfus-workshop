@@ -20,7 +20,7 @@ public class AcStudentQuery implements Serializable {
 		String selectClause;
 		String fromClause;
 		try {
-			selectClause = "SELECT COALESCE(max(student_id + 1),1) ";
+			selectClause = "SELECT COALESCE(max(student_ref + 1),1) ";
 			fromClause = "FROM ac_student";
 
 			query = em.createNativeQuery(selectClause + fromClause);

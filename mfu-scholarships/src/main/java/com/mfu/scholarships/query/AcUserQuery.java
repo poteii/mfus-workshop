@@ -17,7 +17,7 @@ public class AcUserQuery implements Serializable {
 		String selectClause;
 		String fromClause;
 		try {
-			selectClause = "SELECT COALESCE(max(user_id + 1),1) ";
+			selectClause = "SELECT COALESCE(max(user_ref + 1),1) ";
 			fromClause = "FROM ac_user";
 
 			query = em.createNativeQuery(selectClause + fromClause);
@@ -28,5 +28,6 @@ public class AcUserQuery implements Serializable {
 
 		}
 	}
+
 
 }
