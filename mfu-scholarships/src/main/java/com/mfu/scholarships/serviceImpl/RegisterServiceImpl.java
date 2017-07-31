@@ -268,7 +268,7 @@ public class RegisterServiceImpl implements RegisterService {
 	}
 
 	@Override
-	public RegisterForm getDataById(RegisterForm registerForm) {
+	public RegisterForm getData(RegisterForm registerForm) {
 		AcUser acUser;
 		RegisterForm form;
 		AcStudent acStudent;

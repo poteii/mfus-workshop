@@ -52,7 +52,7 @@ public class RegisterController {
 	@RequestMapping("/getData")
 	public RegisterForm getData(@RequestBody RegisterForm form){
 		RegisterForm registerForm = new RegisterForm();
-		registerForm = registerService.getDataById(form);
+		registerForm = registerService.getData(form);
 		return registerForm;
 	}
 

@@ -15,6 +15,6 @@ public interface RegisterService extends Serializable {
 
 	public void deleteUser(RegisterForm registerForm);
 
-	public RegisterForm getDataById(RegisterForm form);
+	public RegisterForm getData(RegisterForm form);
 
 }
