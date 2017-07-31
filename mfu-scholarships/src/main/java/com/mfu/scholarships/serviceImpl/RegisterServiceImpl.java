@@ -74,12 +74,11 @@ public class RegisterServiceImpl implements RegisterService {
 			acStudent.setProfileName(registerForm.getAcStudent().getProfileName());
 			acStudent.setProfileType(registerForm.getAcStudent().getProfileType());
 			acStudent.setProfileImage(registerForm.getAcStudent().getProfileImage());
-
 			acStudent.setCreateUser(studentRef);
 			acStudent.setUpdateUser(studentRef);
 			acStudent.setCreateDatetime(new Timestamp(System.currentTimeMillis()));
 			acStudent.setUpdateDatetime(new Timestamp(System.currentTimeMillis()));
-
+			System.out.println("acStudent = " + acStudent);
 			em.persist(acStudent);
 			return studentRef;
 		} finally {
@@ -100,11 +99,13 @@ public class RegisterServiceImpl implements RegisterService {
 			acUser.setUserRole("1");
 			acUser.setStudentRef(studentRef);
 
+			acUser.setActiveFlag("Y");
 			acUser.setCreateUser(userRef);
 			acUser.setUpdateUser(userRef);
 			acUser.setCreateDatetime(new Timestamp(System.currentTimeMillis()));
 			acUser.setUpdateDatetime(new Timestamp(System.currentTimeMillis()));
 
+			System.out.println("acUser = " + acUser);
 			em.persist(acUser);
 		} finally {
 

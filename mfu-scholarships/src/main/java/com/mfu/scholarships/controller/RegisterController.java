@@ -27,6 +27,7 @@ public class RegisterController {
 			registerService.createUser(form);
 			return new ResponseEntity("insert Success!", HttpStatus.OK);
 		}catch (Exception e) {
+			System.out.println("error = " + e.getMessage());
 			return new ResponseEntity("error!", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
