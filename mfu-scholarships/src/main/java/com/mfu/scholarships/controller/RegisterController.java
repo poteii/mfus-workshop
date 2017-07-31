@@ -49,5 +49,11 @@ public class RegisterController {
 		return new ResponseEntity("Remove Success!", HttpStatus.OK);
 	}
 	
+	@RequestMapping("/getData")
+	public RegisterForm getData(@RequestBody RegisterForm form){
+		RegisterForm registerForm = new RegisterForm();
+		registerForm = registerService.getDataById(form);
+		return registerForm;
+	}
 
 }

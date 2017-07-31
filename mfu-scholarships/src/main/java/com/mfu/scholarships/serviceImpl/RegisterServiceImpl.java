@@ -267,4 +267,29 @@ public class RegisterServiceImpl implements RegisterService {
 		}
 	}
 
+	@Override
+	public RegisterForm getDataById(RegisterForm registerForm) {
+		AcUser acUser;
+		RegisterForm form;
+		AcStudent acStudent;
+		try {
+			acUser = new AcUser();
+			acUser = em.find(AcUser.class, registerForm.getAcUser().getUserRef());
+			
+			acStudent = new AcStudent();
+			acStudent = em.find(AcStudent.class, registerForm.getAcStudent().getStudentRef());
+
+			form = new RegisterForm();
+			form.setAcStudent(new AcStudent());
+			form.setAcUser(new AcUser());
+			
+			form.setAcStudent(acStudent);
+			form.setAcUser(acUser);
+			
+			return form;
+		} finally {
+
+		}
+	}
+
 }
