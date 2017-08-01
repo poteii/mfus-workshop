@@ -304,4 +304,32 @@ public class RegisterServiceImpl implements RegisterService {
 		}
 	}
 
+	@Override
+	public RegisterForm getDataById(int studentRef) {
+		AcUser acUser;
+		RegisterForm form;
+		AcStudent acStudent;
+		try {
+			System.out.println("studentRef = " + studentRef);
+			acUser = new AcUser();
+			acStudent = new AcStudent();
+			acStudent = em.find(AcStudent.class, studentRef);
+			
+			acUser = AcUserQuery.getAcUserByStudentRef(studentRef,em);
+			System.out.println("acUser.getUserRef() = " + acUser.getUserRef());
+			System.out.println("acStudent.getStudentRef() = " + acStudent.getStudentRef());
+
+			form = new RegisterForm();
+			form.setAcStudent(new AcStudent());
+			form.setAcUser(new AcUser());
+			
+			form.setAcStudent(acStudent);
+			form.setAcUser(acUser);
+			
+			return form;
+		} finally {
+
+		}
+	}
+
 }

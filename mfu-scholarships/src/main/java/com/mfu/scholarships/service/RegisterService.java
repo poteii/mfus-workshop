@@ -17,4 +17,6 @@ public interface RegisterService extends Serializable {
 
 	public RegisterForm getData(RegisterForm form);
 
+	public RegisterForm getDataById(int studentRef);
+
 }
