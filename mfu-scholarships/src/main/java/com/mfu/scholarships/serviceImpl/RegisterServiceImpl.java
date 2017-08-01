@@ -115,23 +115,30 @@ public class RegisterServiceImpl implements RegisterService {
 	@Override
 	public List<RegisterForm> doSearch(RegisterForm registerForm) {
 		List<RegisterForm> registerFormList = new ArrayList<RegisterForm>();
-		List<Object> objectList = new ArrayList<Object>();
+		List<Object[]> objectList = new ArrayList<Object[]>();
 		RegisterForm form;
 		AcStudent acStudent;
 		RftSchool rftSchool;
 		RftMajor rftMajor;
+		AcUser acUser;
 		try {
 
 			objectList = AcStudentQuery.searchStudent(registerForm, em);
-			for (Object obj : objectList) {
+			for (Object[] obj : objectList) {
 				form = new RegisterForm();
 				acStudent = new AcStudent();
 				rftSchool = new RftSchool();
 				rftMajor = new RftMajor();
+				acUser = new AcUser();
 
-				acStudent = em.find(AcStudent.class, obj);
+				acStudent = em.find(AcStudent.class, obj[0]);
 				form.setAcStudent(new AcStudent());
 				form.setAcStudent(acStudent);
+				if(obj[1] != null) {
+					acUser = em.find(AcUser.class, obj[1]);
+				}
+				form.setAcUser(new AcUser());
+				form.setAcUser(acUser);
 
 				if (acStudent.getSchoolRef() != 0) {
 					rftSchool = em.find(RftSchool.class, acStudent.getSchoolRef());
@@ -274,8 +281,12 @@ public class RegisterServiceImpl implements RegisterService {
 		RegisterForm form;
 		AcStudent acStudent;
 		try {
+			System.out.println("registerForm.getAcUser().getUserRef() = " + registerForm.getAcUser().getUserRef());
+			System.out.println("registerForm.getAcStudent().getStudentRef() = " + registerForm.getAcStudent().getStudentRef());
 			acUser = new AcUser();
+			
 			acUser = em.find(AcUser.class, registerForm.getAcUser().getUserRef());
+			
 			
 			acStudent = new AcStudent();
 			acStudent = em.find(AcStudent.class, registerForm.getAcStudent().getStudentRef());

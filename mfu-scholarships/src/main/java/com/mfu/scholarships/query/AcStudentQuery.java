@@ -32,7 +32,7 @@ public class AcStudentQuery implements Serializable {
 		}
 	}
 
-	public static List<Object> searchStudent(RegisterForm registerForm, EntityManager em) {
+	public static List<Object[]> searchStudent(RegisterForm registerForm, EntityManager em) {
 		Query query;
 		String selectClause;
 		String fromClause;
@@ -40,8 +40,9 @@ public class AcStudentQuery implements Serializable {
 		boolean isFirst = true;
 		String orderBy = "";
 		try {
-			selectClause = "SELECT student.student_ref ";
-			fromClause = "FROM ac_student student";
+			selectClause = "SELECT student.student_ref, user.user_ref ";
+			fromClause = "FROM ac_student student "
+					+ "left join ac_user user on (student.student_ref = user.student_ref) ";
 
 			if (registerForm.getAcStudent().getPersonalId() != null) {
 				whereClause += (isFirst ? " WHERE " : " AND ") + "student.personal_id = '"
@@ -91,7 +92,7 @@ public class AcStudentQuery implements Serializable {
 				isFirst = false;
 			}
 
-			orderBy = " order by school.school_name_t, major.major_name_t,student.student_id,student.personal_id ASC ";
+			orderBy = " order by student.student_id,student.personal_id ASC ";
 
 			query = em.createNativeQuery(selectClause + fromClause + whereClause + orderBy);
 
