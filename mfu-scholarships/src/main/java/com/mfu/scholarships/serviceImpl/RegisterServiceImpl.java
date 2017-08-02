@@ -205,9 +205,7 @@ public class RegisterServiceImpl implements RegisterService {
 			acStudent.setProfileType(registerForm.getAcStudent().getProfileType());
 			acStudent.setProfileImage(registerForm.getAcStudent().getProfileImage());
 
-			acStudent.setCreateUser(studentRef);
 			acStudent.setUpdateUser(studentRef);
-			acStudent.setCreateDatetime(new Timestamp(System.currentTimeMillis()));
 			acStudent.setUpdateDatetime(new Timestamp(System.currentTimeMillis()));
 
 			em.merge(acStudent);

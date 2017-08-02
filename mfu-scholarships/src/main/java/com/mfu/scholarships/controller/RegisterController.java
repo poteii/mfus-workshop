@@ -39,8 +39,14 @@ public class RegisterController {
 	}
 
 	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-	public void updateUser(@RequestBody RegisterForm form) {
-		registerService.updateUser(form);
+	public ResponseEntity updateUser(@RequestBody RegisterForm form) {
+		try {
+			registerService.updateUser(form);
+			return new ResponseEntity("insert Success!", HttpStatus.OK);
+		}catch (Exception e) {
+			System.out.println("error = " + e.getMessage());
+			return new ResponseEntity("error!", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)

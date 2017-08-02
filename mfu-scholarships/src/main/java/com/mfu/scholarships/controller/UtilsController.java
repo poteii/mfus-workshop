@@ -11,6 +11,7 @@ import com.mfu.scholarships.entity.RftMajor;
 import com.mfu.scholarships.entity.RftProvince;
 import com.mfu.scholarships.entity.RftSchool;
 import com.mfu.scholarships.entity.RftSubDistrict;
+import com.mfu.scholarships.entity.RftTitleName;
 import com.mfu.scholarships.service.UtilsService;
 
 @RestController
@@ -43,6 +44,11 @@ public class UtilsController {
 	@RequestMapping(value = "/getMajors")
 	public List<RftMajor> getMajors() {
 		return utilsService.getMajors();
+	}
+	
+	@RequestMapping(value = "/getTitleNames")
+	public List<RftTitleName> getTitleNames() {
+		return utilsService.getTitleNames();
 	}
 
 }
